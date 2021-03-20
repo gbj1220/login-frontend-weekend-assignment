@@ -1,33 +1,19 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  NavLink,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./component/Home";
 import LogIn from "./component/LogIn";
-import SignUp from "./component/SignUp";
+import SignUp from "./component/SignUp/SignUp";
+
+import Navbar from "./component/Navbar/Navbar";
 /* can export an object here */
 const MainRouter = () => {
   return (
     <Router>
-      <nav>
-        <NavLink exact activeStyle={{ color: "red" }} to='/'>
-          Home
-        </NavLink>
-        <NavLink activeStyle={{ color: "red" }} to='/sign-up'>
-          Sign Up
-        </NavLink>
-        <NavLink activeStyle={{ color: "red" }} to='/log-in'>
-          Log In
-        </NavLink>
-      </nav>
-
+      <Navbar />
       <Switch>
         <Route path='/sign-up' component={SignUp} />
-        <Route path='/log-in' component={LogIn} />
+        <Route path='/login' component={LogIn} />
         <Route path='/' component={Home} />
       </Switch>
     </Router>
