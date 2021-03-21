@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { toSafeInteger } from "lodash";
+import { ToastContainer, toast } from "react-toastify";
 
 export class LogIn extends Component {
   state = {
@@ -25,6 +27,16 @@ export class LogIn extends Component {
       console.log(result);
     } catch (e) {
       console.log(e.response.data);
+      toast.error(e.response.data, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        backgroundColor: "green",
+      });
     }
   };
 
