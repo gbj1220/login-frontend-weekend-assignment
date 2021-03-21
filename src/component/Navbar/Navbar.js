@@ -30,7 +30,7 @@ function Navbar() {
       <NavLink
         className='btn btn-outline-primary'
         activeStyle={{ color: "yellow" }}
-        to='/login'
+        to='/log-in'
       >
         Login
       </NavLink>

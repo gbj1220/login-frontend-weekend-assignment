@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Home from "./component/Home";
-import LogIn from "./component/LogIn";
 import SignUp from "./component/SignUp/SignUp";
+import LogIn from "./component/LogIn/LogIn";
+import Home from "./component/Home";
 
 import Navbar from "./component/Navbar/Navbar";
 /* can export an object here */
