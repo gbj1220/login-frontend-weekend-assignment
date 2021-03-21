@@ -6,7 +6,11 @@ export class LogIn extends Component {
     password: "",
   };
 
-  handleLogin = () => {};
+  handleLogin = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
 
   render() {
     const { email, password } = this.state;
@@ -29,7 +33,7 @@ export class LogIn extends Component {
               autoFocus
               name='firstName'
               value={email}
-              onChange={this.handleSignup}
+              onChange={this.handleLogin}
             />
 
             <label htmlFor='inputPassword' className='visually-hidden'>
