@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 export class LogIn extends Component {
   state = {
@@ -12,26 +13,45 @@ export class LogIn extends Component {
     });
   };
 
+  handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      let result = await axios.post("http://localhost:3001/users/log-in", {
+        email: this.state.email,
+        password: this.state.password,
+      });
+
+      console.log(result);
+    } catch (e) {
+      console.log(e.response.data);
+    }
+  };
+
   render() {
     const { email, password } = this.state;
 
     return (
       <div className='form-body'>
-        Log In
         <main className='form-signin'>
-          <form>
-            <h1 className='h3 mb-3 fw-normal'>Please Login</h1>
+          <form onSubmit={this.handleSubmit}>
+            <h1
+              className='h3 mb-3 fw-normal'
+              style={{ textAlign: "center", color: "skyBlue" }}
+            >
+              Please Login
+            </h1>
             <label htmlFor='inputFirstName' className='visually-hidden'>
               Email
             </label>
             <input
               type='text'
-              id='inputFirstName'
+              id='inputEmail'
               className='form-control'
-              placeholder='First Name'
+              placeholder='Email Address'
               required
               autoFocus
-              name='firstName'
+              name='email'
               value={email}
               onChange={this.handleLogin}
             />
@@ -48,7 +68,7 @@ export class LogIn extends Component {
               required
               name='password'
               value={password}
-              onChange={this.handleOnPasswordChange}
+              onChange={this.handleLogin}
             />
             <button className='w-100 btn btn-lg btn-primary' type='submit'>
               Login
