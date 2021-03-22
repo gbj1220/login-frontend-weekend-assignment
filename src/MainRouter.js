@@ -7,10 +7,11 @@ import Home from "./component/Home";
 
 import Navbar from "./component/Navbar/Navbar";
 /* can export an object here */
-const MainRouter = () => {
+const MainRouter = (props) => {
+  console.log(props);
   return (
     <Router>
-      <Navbar />
+      <Navbar user={props.user} />
       <Switch>
         <Route path='/sign-up' component={SignUp} />
         <Route path='/log-in' component={LogIn} />

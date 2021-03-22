@@ -24,7 +24,7 @@ export class LogIn extends Component {
         password: this.state.password,
       });
 
-      console.log(result);
+      localStorage.setItem("jwtToken", result.data.jwtToken);
     } catch (e) {
       console.log(e.response.data);
       toast.error(e.response.data, {
